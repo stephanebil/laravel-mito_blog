@@ -11,12 +11,13 @@
             <li>{{ $arrGame }}</li>
         @endforeach --}}
         <div class="grid grid-cols-4 gap-3">
-            @foreach ($posts as $post)
-             
-            <a href="posts/{{ $post->id }}" class="">
-                <x-cards.post-card :content="$post->content" :title="$post->title" :url_img="$post->url_img"/>
-            </a>
-            @endforeach
+            @forelse ($posts as $post )
+                <a href="posts/{{ $post->id }}" class="">
+                    <x-cards.post-card :content="$post->content" :title="$post->title" :url_img="$post->url_img"/>
+                </a>
+            @empty
+                <p class="text-center ">Pas d'article actuellment</p>
+            @endforelse 
         </div>
     </div>    
 </x-layouts.main-layout>

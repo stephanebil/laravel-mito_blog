@@ -16,7 +16,8 @@ class PostController extends Controller
     public function index()
     {
       // 1 Retreive all post from models Post
-        $posts= Post::all();
+        // $posts= Post::all();
+        $posts= Post::orderBy('created_at', 'desc')->limit(3)->get();
       //2 send data to view
       return view("pages.home", compact("posts"));
     }
@@ -28,7 +29,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.create');
     }
 
     /**
@@ -39,7 +40,19 @@ class PostController extends Controller
      */
     public function store(StorePostRequest $request)
     {
-        //
+        // dd($request);
+        
+        // dd($request->all());
+        
+        Post::create([
+            'title' => $request->title,
+            'content' => $request->content,
+            'url_img' => $request->url_img,
+            'created_at'=> now()
+        ]);
+        return redirect()
+        ->route('home')
+        ->with('status', 'Le post a bien été rajouté');
     }
 
     /**
