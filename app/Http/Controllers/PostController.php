@@ -50,7 +50,8 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        // dd($post);
+        return view('pages.show', compact('post'));
     }
 
     /**
@@ -84,6 +85,9 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        $post->delete();
+        return redirect()
+            ->route('home')
+            ->with('status', "L'article a bien été supprimé");
     }
 }
