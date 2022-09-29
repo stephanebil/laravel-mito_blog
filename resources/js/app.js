@@ -1,2 +1,7 @@
 import './bootstrap';
-import './scroll';
+import "./scroll";
+import Alpine from 'alpinejs';
+
+window.Alpine = Alpine;
+
+Alpine.start();

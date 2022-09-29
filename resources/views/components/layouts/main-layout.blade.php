@@ -14,7 +14,7 @@
 </head>
 <body>
     @include("partials.navbar._navbar")
-    <h1 id="toto">helloooooooooo wwwwoerensdkfjs</h1>
+    <h1 id="toto">helloooooooooo wwwworld dans le layout-main</h1>
     @include("partials._session")
     {{ $slot }}
 
