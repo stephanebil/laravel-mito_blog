@@ -5,9 +5,11 @@
             @csrf
             <div class="">
                 {{-- title --}}
-                <input type="text" class="block w-full rounded-lg border-gray-400" placeholder="Titre du post" type="text" name="title">
+                <input type="text" class="block w-full rounded-lg border-gray-400" placeholder="Titre du post" type="text" name="title" value="{{ old('title') }}">
+                <x-error-msg name="title" />
                 {{-- content --}}
-                <textarea name="content" cols="30" row="10" class="mt-5 block w-full rounded-lg border-gray-400" placeholder="Votre contenu ..."></textarea>
+                <textarea name="content" cols="30" row="10" class="mt-5 block w-full rounded-lg border-gray-400" placeholder="Votre contenu ...">{{ old('content') }}</textarea>
+                <x-error-msg name="content" />
                 {{-- image --}}
                 <input class="block w-full rounded-lg border-gray-400" name="url_img" placeholder="Url de votre image" type="text" value="https://source.unsplash.com/640x480/?person?1">
                 <button class="btn btn-primary mt-6 w-full">Envoyer</button>
