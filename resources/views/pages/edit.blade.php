@@ -1,7 +1,7 @@
 <x-layouts.main-layout title="Création article">
     <div class="container">
         <h1 class="font-bold text-4xl pb-10 pt-10 text-center">Update Post</h1>
-        <form class="" method="POST" action="{{ route('posts.update', $post->id) }}">
+        <form class="" method="POST" action="{{ route('posts.update', $post->id) }}" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="">
@@ -18,8 +18,13 @@
                 
                 </div>
                 {{-- image --}}
-                <input class="block w-full rounded-lg border-gray-400" name="url_img" placeholder="Url de votre image" type="text" value="https://source.unsplash.com/640x480/?person?1">
-                <button class="btn btn-primary mt-6 w-full">Envoyer</button>
+                <div class="">
+                    <label for="">Choisir une image</label>
+                    <input id="" type="file" name="url_img" class="block">
+                    <x-error-msg name="url_img" />
+                </div>
+                {{-- <input class="block w-full rounded-lg border-gray-400" name="url_img" placeholder="Url de votre image" type="text" value="https://source.unsplash.com/640x480/?person?1"> --}}
+                <button class="btn btn-primary mt-6 w-full">Envoyer</button> 
             </div>
         </form>
     </div>

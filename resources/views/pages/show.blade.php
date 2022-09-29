@@ -1,6 +1,6 @@
 <x-layouts.main-layout :title="$post->title">
     <div class="container mb-10">
-        <img src="{{ $post->url_img }}" alt="" class="">
+        <img src="{{ asset('storage/' . $post->url_img)}}" alt="" class="">
         <div class="">
             <p class="text-3xl font-black py-8">{{ $post->title }}</p>
             <p class="">{!! nl2br(e($post->content)) !!}</p>
