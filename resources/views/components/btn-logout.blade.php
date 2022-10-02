@@ -7,6 +7,6 @@
                         this.closest('form').submit();">
         {{ __('Log Out') }}
     </x-dropdown-link> --}}
-    <button  type="submit" class="btn btn-primary">Déconnexion</button>
+    <button href="{{ route('logout') }}" type="submit" class="btn btn-primary">Déconnexion</button>
 
 </form>

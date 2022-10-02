@@ -1,13 +1,13 @@
 // test animation scroll
-// let el = document.querySelector("#toto");
-// el.style.color= "red";
+let el = document.querySelector("#toto");
+el.style.color= "red";
 
 var slideL = {
   distance: "150%",
   origin: "left",
   opacity: null,
   duration: 500,
-  delay: 4000,
+  // delay: 4000,
 };
 var slideR = {
   distance: "150%",
@@ -30,6 +30,7 @@ var slideB = {
 };
 
 
-ScrollReveal().reveal("#logo", "#container_card", slideL);
+// ScrollReveal().reveal("#logo", "#container_card", slideL);
+ScrollReveal().reveal("#logo", slideL);
 ScrollReveal().reveal( "#container_card", slideB);
 ScrollReveal().reveal("#navitem", slideR);

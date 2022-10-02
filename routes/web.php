@@ -19,7 +19,11 @@ use App\Http\Controllers\PostController;
 // });
 
 Route::get('/', [PostController::class, 'index'])->name("home");
+
+
+
 Route::resource('posts', PostController::class);
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

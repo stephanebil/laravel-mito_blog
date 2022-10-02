@@ -19,6 +19,7 @@
                     {{-- < li class=""><a href="{{ route('logout') }}" class=" {{ $styleLink }}">Déconnexion</a></li> --}}
                 @auth
                     <x-btn-logout />
+                    <span>Hello, {{ Auth::user()->name }}</span>
                 @endauth    
             </ul>
         </div>
