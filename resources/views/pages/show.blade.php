@@ -10,7 +10,15 @@
                     <a href="{{ $post->id }}/edit" class="btn btn-success">Modifier</a>
                 </div>
             @endauth
-            
+        </div>
+        <div class="my-14 bg-blue-100 p-5">
+            <h2 class="text-2xl font-black">Commentaires</h2>
+            <form action="{{ route('comment.store') }}" method="POST">
+                @csrf
+                <input type="text" placeholder="Votre commentaire" name="content">
+                <button class="btn btn-primary" type="submit">Envoyer</button>
+                <x-error-msg name="content"/>
+            </form>
         </div>
     </div>
 </x-layouts.main-layout>

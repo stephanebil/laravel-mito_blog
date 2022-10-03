@@ -17,7 +17,8 @@
                     You're logged in!
                 </div> --}}
                 <a href="{{ route('posts.create') }}" class="{{ $styleLink }}">new post</a>
-                <a href="" class="{{ $styleLink }}">La liste des Posts</a>
+                <a href="{{ route('posts.all') }}" class="{{ $styleLink }}">La liste des Posts</a>
+                <a href="{{ route('users.all') }}" class="{{ $styleLink }}">La liste les utilisateurs</a>
             </div>
         </div>
     </div>

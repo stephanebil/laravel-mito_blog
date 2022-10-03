@@ -9,6 +9,14 @@ use App\Http\Requests\UpdatePostRequest;
 
 class PostController extends Controller
 {
+    // attention avant construct mettre 2 _ _  !!!!
+    public function __construct()
+    {
+        // toutes les routes doivent être authentifiées sauf index et show
+        $this->middleware(['auth'])->except(['index', 'show',]);
+    }
+    
+    
     /**
      * Display a listing of the resource.
      *
@@ -151,4 +159,12 @@ class PostController extends Controller
             ->route('home')
             ->with('status', "L'article a bien été supprimé");
     }
+    // méthode de all-posts.blade.php
+    public function allPosts()
+    {
+        $posts = Post::orderBy('updated_at', 'DESC')->paginate(5);
+        return view('pages.all-posts', compact('posts'));
+    }
+    
+    
 }
