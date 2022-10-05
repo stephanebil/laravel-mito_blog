@@ -33,6 +33,10 @@ Route::get('/all-posts', [PostController::class, 'allPosts'])->name('posts.all')
 // Route du fichier all-users.blade.php se trouvant dans pages
 Route::get('/all-users', [UserController::class, 'allUsers'])->name('users.all');
 
+// delete image post
+Route::get('/posts/remove-img/{id}', [PostController::class, 'removeImage'])->name('delete.img');
+
+
 // route type post avec slug /comment qui traite le formulaire avec la methode store
 Route::post('/comment/{id}',[CommentController::class, 'store'])->name('comment.store');
 

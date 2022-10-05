@@ -23,6 +23,12 @@
                     <input id="" type="file" name="url_img" class="block">
                     <x-error-msg name="url_img" />
                 </div>
+                 {{-- others images --}}
+                <div class="">
+                    <label for="">Others images:</label>
+                    <input id="" type="file" name="images[]" class="block" id="" multiple>
+                    <x-error-msg name="images" />
+                </div>
                 {{-- <input class="block w-full rounded-lg border-gray-400" name="url_img" placeholder="Url de votre image" type="text" value="https://source.unsplash.com/640x480/?person?1"> --}}
                 <button class="btn btn-primary mt-6 w-full">Envoyer</button> 
             </div>

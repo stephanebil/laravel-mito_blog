@@ -1,6 +1,22 @@
+@php
+    // dd($post->images);
+@endphp
 <x-layouts.main-layout :title="$post->title">
     <div class="container mb-10">
-        <img src="{{ asset('storage/' . $post->url_img)}}" alt="" class="">
+        {{-- <p>{{ $post->featuredImage->slug }}</p> --}}
+        <div class="flex space-x-4">
+            @if (count($post->images) > 0 )
+                <div class="space-y-2 bg-gray-200 p-4">
+                    @foreach ( $post->images as $image)
+                        <img src="{{ asset($image->slug) }}" alt="" class="w-52">
+                        <a href="{{ route('delete.img', $image->id) }}" class="btn btn-outline-error btn-xs ">X</a>
+                    @endforeach
+                </div>
+            @endif
+                
+            <img src="{{ asset('storage/' . $post->url_img)}}" alt="{{ $post->title }}" class="w-[50%]">
+        </div>
+        
         <div class="">
             <p class="text-3xl font-black py-8">{{ $post->title }}</p>
             <p class="">{!! nl2br(e($post->content)) !!}</p>
