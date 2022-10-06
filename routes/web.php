@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\CommentController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CommentController;
+use App\Http\Controllers\ListOfCategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,22 +28,41 @@ Route::get('/', [PostController::class, 'index'])->name("home");
 // Route::resource('posts', PostController::class)->middlware(['auth']);
 Route::resource('posts', PostController::class);
 
-// Route du fichier all-posts.blade.php se trouvant dans pages
-Route::get('/all-posts', [PostController::class, 'allPosts'])->name('posts.all');
 
-// Route du fichier all-users.blade.php se trouvant dans pages
-Route::get('/all-users', [UserController::class, 'allUsers'])->name('users.all');
 
-// delete image post
-Route::get('/posts/remove-img/{id}', [PostController::class, 'removeImage'])->name('delete.img');
+
 
 
 // route type post avec slug /comment qui traite le formulaire avec la methode store
 Route::post('/comment/{id}',[CommentController::class, 'store'])->name('comment.store');
 
-
-Route::get('/dashboard', function () {
+Route::middleware(['auth'])->prefix('dashboard')->group(function () {
+    // dashboard
+    Route::get('/', function () {
     return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+    })->name('dashboard');
+    
+    // category
+    Route::get('/list-category', [ListOfCategoryController::class, 'index'])->name('categories.home');
+    Route::post('/list-category', [ListOfCategoryController::class, 'store'])->name('category.store');
+    
+    // Route du fichier all-posts.blade.php se trouvant dans pages
+    Route::get('/all-posts', [PostController::class, 'allPosts'])->name('posts.all');
+
+    // Route du fichier all-users.blade.php se trouvant dans pages
+    Route::get('/all-users', [UserController::class, 'allUsers'])->name('users.all');
+    
+    // delete image post
+    Route::get('/posts/remove-img/{id}', [PostController::class, 'removeImage'])->name('delete.img');
+
+    
+});
+
+
+
+// faire glisser le dashboard dans authentification auth
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
 require __DIR__.'/auth.php';

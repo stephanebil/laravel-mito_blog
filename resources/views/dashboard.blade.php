@@ -19,7 +19,7 @@
                 <a href="{{ route('posts.create') }}" class="{{ $styleLink }}">new post</a>
                 <a href="{{ route('posts.all') }}" class="{{ $styleLink }}">La liste des Posts</a>
                 <a href="{{ route('users.all') }}" class="{{ $styleLink }}">La liste les utilisateurs</a>
-                <a href="" class="{{ $styleLink }}">Gérer les catégories</a>
+                <a href="{{ route('categories.home') }}" class="{{ $styleLink }}">Gérer les catégories</a>
             </div>
         </div>
     </div>
