@@ -174,8 +174,8 @@ class PostController extends Controller
         
         $request->validate([
             'title' => 'required|min:5|string|max:180',
-            'content' => 'required|min:20|max:350|string',
-            'url_img' => 'required|image|mimes:png,jpg,jpeg|max:2000'
+            'content' => 'required|min:20|max:3050|string',
+            'url_img' => 'required|sometimes|image|mimes:png,jpg,jpeg|max:2000'
         ]);
 
         $post->update([

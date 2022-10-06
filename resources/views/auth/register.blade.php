@@ -1,8 +1,9 @@
 <x-guest-layout>
     <x-auth-card>
         <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+            <a href="/" class="text-blue-500 uppercase font-bold text-xl">
+                {{-- <x-application-logo class="w-20 h-20 fill-current text-gray-500" /> --}}
+                Tchoupi<span class="text-red-500">Blog</span>
             </a>
         </x-slot>
 
@@ -11,7 +12,7 @@
 
             <!-- Name -->
             <div>
-                <x-input-label for="name" :value="__('Name')" />
+                <x-input-label for="name" :value="__('Nom')" />
 
                 <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
 
@@ -29,7 +30,7 @@
 
             <!-- Password -->
             <div class="mt-4">
-                <x-input-label for="password" :value="__('Password')" />
+                <x-input-label for="password" :value="__('Mot de passe')" />
 
                 <x-text-input id="password" class="block mt-1 w-full"
                                 type="password"
@@ -41,7 +42,7 @@
 
             <!-- Confirm Password -->
             <div class="mt-4">
-                <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
+                <x-input-label for="password_confirmation" :value="__('Confirmer le mot de passe')" />
 
                 <x-text-input id="password_confirmation" class="block mt-1 w-full"
                                 type="password"
