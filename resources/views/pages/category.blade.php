@@ -15,8 +15,9 @@
             <div class="border-b py-3">
                 <p class="uppercase">{{ $category->category }}</p>
                 <div class="">
-                    <a href="" class="bg-blue-500">modifier</a>
-                    <a href="" class="bg-red-500">delete</a>
+                    <a href="{{ route('category.edit', $category->id) }}" class="bg-blue-500">modifier</a>
+                    {{-- <a href="" class="bg-red-500">delete</a> --}}
+                    <x-link-delete routeName="category.delete" :itemId="$category->id" linkName="supprimer"/>
                 </div>
             </div>
             
